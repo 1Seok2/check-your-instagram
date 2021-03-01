@@ -1,6 +1,6 @@
 import os
 from config.firebase import db
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 # data = {
 #     "age": 24,
@@ -21,6 +21,12 @@ def page_not_found():
 @app.route("/")
 def home():
     return render_template('index.html')
+
+
+@app.route("/check", methods=["POST"])
+def check():
+    value = request.form['insta_id']
+    return value
 
 
 if __name__ == "__main__":

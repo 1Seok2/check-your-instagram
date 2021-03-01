@@ -1,5 +1,6 @@
 node_modules
 .env
 .vscode
+chromedriver
 
 key.py
