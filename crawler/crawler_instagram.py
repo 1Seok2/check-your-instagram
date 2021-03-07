@@ -1,14 +1,12 @@
 import time
-import selenium
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-from config.admin import ID, PW
+from config.admin import ID, PW, LOCAL_PROJECT_PATH
 from config.URLs import INSTAGRAM_URL
 from config.firebase import update_data
 
 def check_people(driver, type):
     result = []
-
     navigations = driver.find_elements_by_class_name('-nal3')
 
     if type == "followers":
@@ -44,11 +42,12 @@ def get_list(insta_id, driver):
     # check followings
     following_list = check_people(driver, "following")
 
+    # update at firebase
     update_data(insta_id, followers_list, following_list)
 
 
 def crawler_instagram(insta_id):
-    driver = webdriver.Chrome(executable_path='/Users/choewonseog/Documents/check-your-instagram/crawler/chromedriver')
+    driver = webdriver.Chrome(executable_path=LOCAL_PROJECT_PATH + '/crawler/chromedriver')
     driver.get(url=INSTAGRAM_URL)
     time.sleep(4)
 
