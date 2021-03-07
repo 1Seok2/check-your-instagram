@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 
 from crawler.crawler_instagram import crawler_instagram
 
@@ -16,11 +16,19 @@ def home():
     return render_template('index.html')
 
 
-@app.route("/update", methods=["POST"])
-def check():
-    insta_id = request.form['insta_id']
-
+@app.route("/update", methods=["GET"])
+def update():
+    insta_id = request.args.get('insta_id')
     crawler_instagram(insta_id)
+
+    data = {
+        "insta_id" : insta_id
+    }
+    return jsonify(data)
+
+@app.route("/hello", methods=["GET"])
+def hello():
+    return "hello"
 
 
 if __name__ == "__main__":

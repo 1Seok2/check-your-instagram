@@ -48,7 +48,7 @@ def get_list(insta_id, driver):
 
 
 def crawler_instagram(insta_id):
-    driver = webdriver.Chrome(executable_path='./chromedriver')
+    driver = webdriver.Chrome(executable_path='/Users/choewonseog/Documents/check-your-instagram/crawler/chromedriver')
     driver.get(url=INSTAGRAM_URL)
     time.sleep(4)
 
