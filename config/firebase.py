@@ -16,3 +16,13 @@ config = {
 firebase = pyrebase.initialize_app(config)
 
 db = firebase.database()
+
+def update_data(user_insta_id ,followers, followings):
+    insta_id = user_insta_id.replace('_','').replace('.','')
+
+    data = {
+        "followings" : followings,
+        "followers" : followers
+    }
+
+    db.child("insta").child(insta_id).update(data)

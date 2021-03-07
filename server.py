@@ -1,16 +1,7 @@
 import os
 from flask import Flask, render_template, request
 
-from config.firebase import db
 from crawler.crawler_instagram import crawler_instagram
-
-# data = {
-#     "age": 24,
-#     "name": "choi",
-#     "date": "2020.12.03"
-# }
-
-# db.child("name").child("name").update(data)
 
 app = Flask(__name__)
 
@@ -25,7 +16,7 @@ def home():
     return render_template('index.html')
 
 
-@app.route("/check", methods=["POST"])
+@app.route("/update", methods=["POST"])
 def check():
     insta_id = request.form['insta_id']
 

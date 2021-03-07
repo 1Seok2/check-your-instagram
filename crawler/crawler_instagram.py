@@ -4,6 +4,24 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from config.admin import ID, PW
 from config.URLs import INSTAGRAM_URL
+from config.firebase import update_data
+
+def check_people(driver, type):
+    result = []
+
+    navigations = driver.find_elements_by_class_name('-nal3')
+
+    if type == "followers":
+        navigations[1].click()
+    elif type == "following":
+        navigations[2].click()
+    time.sleep(1)
+
+    elem = driver.find_elements_by_css_selector('.Jv7Aj ._0imsa')
+    for obj in elem:
+        result.append(obj.text)
+
+    return result
 
 
 def login(driver):
@@ -14,10 +32,19 @@ def login(driver):
     elem[1].send_keys(Keys.RETURN)
     time.sleep(1)
 
-def get_list(insta_id, driver):
-    navigations = driver.find_elements_by_class_name('-nal3')
 
-    navigations[1].click()
+def get_list(insta_id, driver):
+    # check followers
+    followers_list = check_people(driver, "followers")
+
+    # close followers
+    driver.find_element_by_css_selector('.WaOAr .wpO6b').click()
+    time.sleep(1)
+
+    # check followings
+    following_list = check_people(driver, "following")
+
+    update_data(insta_id, followers_list, following_list)
 
 
 def crawler_instagram(insta_id):
@@ -43,13 +70,9 @@ def crawler_instagram(insta_id):
         print('private!!')
     # 공개 계정인 경우
     else:
-        nav = get_list(insta_id, driver)
-        time.sleep(2)
+        get_list(insta_id, driver)
 
-
-    # driver.close()
-
-    return nav
+    driver.close()
 
 
 if __name__ == "__main__":
