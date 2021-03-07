@@ -1,6 +1,8 @@
 import os
-from config.firebase import db
 from flask import Flask, render_template, request
+
+from config.firebase import db
+from crawler.crawler_instagram import crawler_instagram
 
 # data = {
 #     "age": 24,
@@ -25,8 +27,9 @@ def home():
 
 @app.route("/check", methods=["POST"])
 def check():
-    value = request.form['insta_id']
-    return value
+    insta_id = request.form['insta_id']
+
+    crawler_instagram(insta_id)
 
 
 if __name__ == "__main__":

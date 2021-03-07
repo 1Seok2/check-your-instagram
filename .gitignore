@@ -4,3 +4,7 @@ node_modules
 chromedriver
 
 key.py
+admin.py
+
+venv
+venv3
