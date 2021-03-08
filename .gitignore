@@ -8,9 +8,7 @@ crawler/chromedriver.exe
 **/*.exe
 package-lock.json
 
-app/build/*.map
-app/build/*.js
-build/**
+**/build/
 public
 
 key.py
