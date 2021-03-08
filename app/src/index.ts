@@ -1,18 +1,13 @@
-import {Bye} from './Bye';
-import './assets/style/App.css';
-import v4 from './assets/image/v4Logo.png';
+/**
+ * @author : wonseog
+ * @date : 2021/03/08
+ * @description : 현재 pathname을 파악 후 App으로 전달
+**/
+import App from "./App";
 
-const hi = 'hchoi won';
+window.addEventListener('DOMContentLoaded', () => {
+    const $App = document.querySelector('#App');
+    let pathname = window.location.pathname.split('/')[1];
 
-const hi1 = () => {
-  console.log(hi);
-  Bye();
-
-  const tag = window.document.querySelector('#App');
-
-  if(tag) {
-    tag.innerHTML = `<img src=${v4} alt="image" />`;
-  }
-};
-
-hi1();
+    $App && ($App.innerHTML = App(pathname));
+})
