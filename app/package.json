@@ -19,7 +19,8 @@
     "posttest": "npm.cmd run lint",
     "compile": "tsc -w",
     "build": "webpack --watch",
-    "start": "webpack serve --open"
+    "start": "webpack serve --open",
+    "predeploy" : "webpack"
   },
   "devDependencies": {
     "@types/node": "^14.11.2",

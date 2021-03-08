@@ -16,3 +16,8 @@ npm run start
 ```
 
 `npm run start`만 진행할 시 수정사항이 적용되지 않음
+
+### 최종 빌드 진행
+```shell
+npm run predeploy
+```
