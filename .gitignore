@@ -1,7 +1,16 @@
 node_modules
 .env
 .vscode
-chromedriver
+crawler/chromedriver
+crawler/chromedriver.exe
+.idea
+**/*.exe
+package-lock.json
+
+app/build/*.map
+app/build/*.js
+build
+public
 
 key.py
 admin.py
