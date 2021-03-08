@@ -1,0 +1,14 @@
+{
+  "name": "check-your-instagram",
+  "version": "1.0.0",
+  "description": "check your instagram id",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "javascript"
+  ],
+  "author": "goesnow",
+  "license": "MIT"
+}

@@ -3,6 +3,8 @@ node_modules
 .vscode
 chromedriver
 
+app/**/*.map
+
 key.py
 admin.py
 
