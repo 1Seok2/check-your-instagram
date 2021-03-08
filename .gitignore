@@ -4,6 +4,7 @@ node_modules
 chromedriver
 
 app/**/*.map
+app/**/*.js
 
 key.py
 admin.py
