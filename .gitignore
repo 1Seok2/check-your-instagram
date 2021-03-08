@@ -1,15 +1,14 @@
-node_modules
+**/node_modules/
 .env
-.vscode
+.vscode/**
+**/.idea/
+
 crawler/chromedriver
 crawler/chromedriver.exe
-.idea
 **/*.exe
 package-lock.json
 
-app/build/*.map
-app/build/*.js
-build
+**/build/
 public
 
 key.py
