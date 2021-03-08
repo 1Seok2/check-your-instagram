@@ -1,6 +1,7 @@
 import {Bye} from './Bye';
+import './assets/style/App.css';
 
-const hi = 'hello?';
+const hi = 'hchoi won';
 
 const hi1 = () => {
   console.log(hi);

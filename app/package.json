@@ -13,19 +13,19 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "gts lint",
     "clean": "gts clean",
-    "compile": "tsc",
     "fix": "gts fix",
     "prepare": "npm.cmd run compile",
     "pretest": "npm.cmd run compile",
     "posttest": "npm.cmd run lint",
+    "compile": "tsc -w",
     "build": "webpack --watch",
-    "dev": "tsc -w",
-    "start": "http-server ./",
-    "hot": "webpack serve --open"
+    "start": "webpack serve --open"
   },
   "devDependencies": {
     "@types/node": "^14.11.2",
+    "css-loader": "^5.1.1",
     "gts": "^3.1.0",
+    "ts-loader": "^8.0.17",
     "typescript": "^4.0.3",
     "webpack": "^5.24.3",
     "webpack-cli": "^4.5.0",

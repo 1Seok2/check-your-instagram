@@ -9,6 +9,7 @@ package-lock.json
 app/build/*.map
 app/build/*.js
 build
+public
 
 key.py
 admin.py
