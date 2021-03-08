@@ -5,7 +5,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = {
     mode : 'development',
     entry : {
-        // main : './build/src/index.js'
         main  : './src/index.ts'
     },
     module : {
@@ -23,7 +22,8 @@ module.exports = {
                 test: /\.(png|jpe?g|gif|jp2|webp)$/,
                 loader: 'file-loader',
                 options: {
-                    name: 'images/[name].[ext]'
+                    name: 'images/[name].[ext]',
+                    publicPath: 'public/'
                 },
             }
         ]
@@ -32,8 +32,8 @@ module.exports = {
         extensions: [".tsx", ".ts", ".js"],
     },
     output : {
-        publicPath: '/app/public',
-        path: path.resolve('./public'),
+        publicPath: '/public/',
+        path: path.resolve('./public/'),
         filename: '[name].js',
     },
     devServer : {
@@ -46,7 +46,7 @@ module.exports = {
         }
     },
     plugins : [
-        new CleanWebpackPlugin(),
+        // new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             template : './src/index.html'
         })
