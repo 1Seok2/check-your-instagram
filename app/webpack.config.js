@@ -1,4 +1,6 @@
-const path = require('path')
+const path = require('path');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
     mode : 'development',
@@ -30,17 +32,23 @@ module.exports = {
         extensions: [".tsx", ".ts", ".js"],
     },
     output : {
-        publicPath: '/app',
+        publicPath: '/app/public',
         path: path.resolve('./public'),
         filename: '[name].js',
     },
     devServer : {
         port : 3000,
         hot: true,
-        contentBase: __dirname,
+        contentBase: __dirname + '/public/',
         inline: true,
         watchOptions: {
             poll: true
         }
-    }
+    },
+    plugins : [
+        new CleanWebpackPlugin(),
+        new HtmlWebpackPlugin({
+            template : './src/index.html'
+        })
+    ]
 }
