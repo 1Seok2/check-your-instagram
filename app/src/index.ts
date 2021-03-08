@@ -1,7 +1,10 @@
-const hi = 'hi';
+import {Bye} from './Bye';
 
-export const hi1 = () => {
+const hi = 'hello?';
+
+const hi1 = () => {
   console.log(hi);
+  Bye();
 };
 
 hi1();

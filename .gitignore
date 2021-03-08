@@ -4,9 +4,10 @@ node_modules
 crawler/chromedriver
 crawler/chromedriver.exe
 **/*.exe
+package-lock.json
 
-app/**/*.map
-app/**/*.js
+app/build/*.map
+app/build/*.js
 build
 
 key.py
