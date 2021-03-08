@@ -5,6 +5,7 @@ chromedriver
 
 app/**/*.map
 app/**/*.js
+build
 
 key.py
 admin.py

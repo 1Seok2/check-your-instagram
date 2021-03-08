@@ -7,7 +7,16 @@ typescript만으로 작성
 npx gts init
 ```
 
+# 개발
+
 ### 프로젝트 dev 모드
 ```shell
 tsc -w
+```
+
+### 프론트 서버 띄우기
+```shell
+npm install -g http-server
+cd ./app
+http-server ./
 ```

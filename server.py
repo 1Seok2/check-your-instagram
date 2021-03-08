@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, send_from_directory
 
 from crawler.crawler_instagram import crawler_instagram
 
@@ -13,7 +13,8 @@ def page_not_found():
 
 @app.route("/")
 def home():
-    return render_template('index.html')
+    # return render_template('index.html')
+    return send_from_directory('./app','index.html')
 
 
 @app.route("/update", methods=["GET"])
