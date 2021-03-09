@@ -11,12 +11,15 @@ import Body from "./views/body/Body";
 import Footer from "./views/footer/Footer";
 
 const App = (pathname : string) : string => {
+    history.pushState('','', pathname);
+
     let contents : string = `
         <div>
             ${Header()}
             hello ${pathname}
             ${Body()}
             ${Footer()}
+            <a href="/wonseog" id="nav-button" data-link>wonseok!!</a>
         </div>
     `;
 

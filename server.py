@@ -2,7 +2,11 @@ import os
 from flask import Flask, render_template, request, jsonify, send_from_directory
 from crawler.crawler_instagram import crawler_instagram
 
-my_path = '/Users/choewonseog/Documents/check-your-instagram/app/public'
+# my_path = '/Users/choewonseog/Documents/check-your-instagram/app/public'
+# my_path = 'C:/Users/goesnow/Documents/study/check-your-instagram/app/public'
+
+root_dir = os.path.dirname(os.getcwd())
+my_path = os.path.join(root_dir, 'check-your-instagram', 'app', 'public')
 app = Flask(__name__, static_folder=os.path.abspath(my_path))
 
 
@@ -28,8 +32,8 @@ def home(path):
         update(insta_id)
     # elif path == '':
     else:
-        root_dir = os.path.dirname(os.getcwd())
-        return send_from_directory(os.path.join(root_dir, 'check-your-instagram', 'app', 'public'), filename='index.html')
+        print()
+        return send_from_directory(my_path, filename='index.html')
 
 
 if __name__ == "__main__":
