@@ -23,7 +23,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     /* change url */
     window.addEventListener('popstate', ()=>{
-        $App && ($App.innerHTML = App(pathname))
+        $App && ($App.innerHTML = App(pathname));
     });
 
     /* initial render */
@@ -52,9 +52,11 @@ window.addEventListener('DOMContentLoaded', () => {
                 } catch (e){
                     console.log(e);
                 } finally {
-                    console.log(result)
-                    result && $App && ($App.innerHTML = App('main'))
+                    console.log(result);
+                    result && $App && ($App.innerHTML = App('main'));
                 }
+            } else {
+                alert('아이디를 입력하세요');
             }
         }
     });

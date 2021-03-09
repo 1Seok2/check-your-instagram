@@ -4,10 +4,12 @@
  * @description : 페이지 푸터
 **/
 
+import '../../assets/style/Footer.scss'
+
 const Footer = () : string => {
 
     return `
-        <div class="Footer">Its my Footer</div>
+        <div class="footer">Its my Footer</div>
     `;
 }
 
