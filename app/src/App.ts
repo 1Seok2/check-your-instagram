@@ -13,17 +13,14 @@ import Footer from "./views/footer/Footer";
 const App = (pathname : string) : string => {
     history.pushState('','', pathname);
 
-    let contents : string = `
+    return `
         <div>
             ${Header()}
-            hello ${pathname}
-            ${Body()}
+            ${Body(pathname)}
             ${Footer()}
             <a href="/wonseog" id="nav-button" data-link>wonseok!!</a>
         </div>
     `;
-
-    return contents;
 }
 
 export default App;

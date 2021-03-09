@@ -29,11 +29,9 @@ def page_not_found():
 def home(path):
     if path == 'update':
         insta_id = request.args.get('insta_id')
-        update(insta_id)
-    # elif path == '':
-    else:
-        print()
-        return send_from_directory(my_path, filename='index.html')
+        return update(insta_id)
+
+    return send_from_directory(my_path, filename='index.html')
 
 
 if __name__ == "__main__":

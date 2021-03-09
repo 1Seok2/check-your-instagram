@@ -3,13 +3,13 @@
  * @date : 2021/03/08
  * @description : 페이지 헤더
 **/
+
 import Title from "../../components/title";
 
-const Header = () : string => {
-
-    return `
-        <div class="header">${Title('im title').Large}</div>
-    `;
-}
+const Header = () : string => `
+    <div class="header">
+        ${Title('im title').Large}
+    </div>
+`;
 
 export default Header;

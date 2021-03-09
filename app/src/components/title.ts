@@ -6,7 +6,7 @@
 
 const titleTemplate = (type : string, title : string) => `
     <div class="${type}-title">
-        ${type} ${title}
+        ${title}
     </div>
 `
 

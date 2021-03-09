@@ -49,10 +49,10 @@ def get_list(insta_id, driver):
 def crawler_instagram(insta_id):
     driver = webdriver.Chrome(executable_path=LOCAL_PROJECT_PATH + '/crawler/chromedriver')
     driver.get(url=INSTAGRAM_URL)
-    time.sleep(4)
+    time.sleep(2)
 
     login(driver)
-    time.sleep(5)
+    time.sleep(2)
 
     url="%s/%s"%(INSTAGRAM_URL, insta_id)
     driver.get(url=url)
