@@ -9,6 +9,8 @@
 import Header from "./views/header/Header";
 import Body from "./views/body/Body";
 import Footer from "./views/footer/Footer";
+import './assets/style/App.scss';
+import './assets/style/PageTransition.scss';
 
 const App = (pathname : string) : string => {
     history.pushState('','', pathname);
