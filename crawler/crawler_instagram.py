@@ -3,7 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from config.admin import ID, PW, LOCAL_PROJECT_PATH
 from config.URLs import INSTAGRAM_URL
-from config.firebase import update_data
+# from config.firebase import update_data
 
 def check_people(driver, type):
     result = []
@@ -43,16 +43,16 @@ def get_list(insta_id, driver):
     following_list = check_people(driver, "following")
 
     # update at firebase
-    update_data(insta_id, followers_list, following_list)
+    # update_data(insta_id, followers_list, following_list)
 
 
 def crawler_instagram(insta_id):
     driver = webdriver.Chrome(executable_path=LOCAL_PROJECT_PATH + '/crawler/chromedriver')
     driver.get(url=INSTAGRAM_URL)
-    time.sleep(4)
+    time.sleep(2)
 
     login(driver)
-    time.sleep(5)
+    time.sleep(2)
 
     url="%s/%s"%(INSTAGRAM_URL, insta_id)
     driver.get(url=url)
