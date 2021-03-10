@@ -1,6 +1,7 @@
 import time
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.chrome.options import Options
 from config.admin import ID, PW, LOCAL_PROJECT_PATH
 from config.URLs import INSTAGRAM_URL
 from config.firebase import update_data
@@ -13,7 +14,7 @@ def check_people(driver, type):
         navigations[1].click()
     elif type == "following":
         navigations[2].click()
-    time.sleep(1)
+    time.sleep(2)
 
     elem = driver.find_elements_by_css_selector('.Jv7Aj ._0imsa')
     for obj in elem:
@@ -24,6 +25,8 @@ def check_people(driver, type):
 
 def login(driver):
     elem = driver.find_elements_by_css_selector('._9GP1n .f0n8F ._2hvTZ')
+    time.sleep(1)
+
     elem[0].send_keys(ID)
     elem[1].send_keys(PW)
 
@@ -39,29 +42,38 @@ def get_list(insta_id, driver):
     driver.find_element_by_css_selector('.WaOAr .wpO6b').click()
     time.sleep(1)
 
-    # check followings
+    # check following
     following_list = check_people(driver, "following")
 
     # update at firebase
     data = {
         "followers" : followers_list,
-        "followings" : following_list,
+        "following" : following_list,
         "insta_id" : insta_id
     }
     update_data(insta_id, data)
 
+    return data
+
 
 def crawler_instagram(insta_id):
-    driver = webdriver.Chrome(executable_path=LOCAL_PROJECT_PATH + '/crawler/chromedriver')
+    options = Options()
+    # options.add_argument("--headless")
+    options.add_argument("window-size=1920,1080")
+    driver = webdriver.Chrome(chrome_options=options, executable_path=LOCAL_PROJECT_PATH + '/crawler/chromedriver')
     driver.get(url=INSTAGRAM_URL)
     time.sleep(2)
 
+    print('hi')
     login(driver)
+    print('by')
     time.sleep(2)
 
     url="%s/%s"%(INSTAGRAM_URL, insta_id)
     driver.get(url=url)
     time.sleep(2)
+
+    data = {};
 
     try:
         isPrivate = driver.find_element_by_class_name('rkEop').text
@@ -73,9 +85,11 @@ def crawler_instagram(insta_id):
     if isPrivate:
         print('private!!')
     else:
-        get_list(insta_id, driver)
+        data = get_list(insta_id, driver)
 
     driver.close()
+
+    return data
 
 
 if __name__ == "__main__":

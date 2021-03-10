@@ -15,13 +15,18 @@ const initialState = {
     insta_id : '',
     followers : [''],
     following : [''],
+}
+let state: StateType = initialState;
+
+export const setState = (newState: StateType): void => {
+    state = {
+        ...state,
+        ...newState
+    }
 };
 
-const state: StateType = initialState;
-
-export const setState = (newState: StateType): StateType =>({
-    ...state,
-    ...newState
-});
+export const getState = () => {
+    return state
+}
 
 export default state;

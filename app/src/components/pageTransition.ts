@@ -24,7 +24,7 @@ const turnOnAndOff = (idx : number)=>{
                 $div.style.display = 'none';
                 $div.classList.toggle(pageTransitionClassList[idx]);
             })()
-        },idx === 0 ? 1000 : 2400);
+        },idx === 0 ? 900 : 2300);
     })()
 }
 

@@ -6,7 +6,7 @@
 
 import {BASE_URL} from "@src/config/url";
 import {randomTransition} from "@src/components/pageTransition";
-import {setState} from "@src/store/state";
+import {getState, setState} from "@src/store/state";
 
 export const addEvent = async (
     e : Event,
@@ -31,18 +31,21 @@ export const addEvent = async (
 
         if(insta_id){
             try{
-                result = await (await fetch(BASE_URL + 'update?insta_id=' + insta_id)).json();
+                result = await (await fetch(BASE_URL + 'search?insta_id=' + insta_id)).json();
             } catch (e){
                 console.log(e);
             } finally {
-                console.log(result);
+                console.log('res!',result);
                 result && $App && (()=>{
-                    $App.innerHTML = App('main');
+                    randomTransition();
                     setState({
                         insta_id : insta_id,
                         followers : result.followers,
                         following : result.following
                     });
+                    setTimeout(()=>{
+                        $App.innerHTML = App('main');
+                    },1200)
                 })();
             }
         } else {
@@ -62,8 +65,15 @@ export const addEvent = async (
             } finally {
                 console.log(result);
                 result && $App && (()=>{
-                    $App.innerHTML = App('main');
-                    setState({insta_id : insta_id});
+                    randomTransition();
+                    setState({
+                        insta_id : insta_id,
+                        followers : result.followers,
+                        following : result.following
+                    });
+                    setTimeout(()=>{
+                        $App.innerHTML = App('main');
+                    },1200)
                 })();
             }
         } else {

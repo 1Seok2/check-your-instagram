@@ -1,7 +1,7 @@
 /**
  * @author : wonseog
  * @date : 2021/03/10
- * @description : followers vs followings
+ * @description : followers vs following
 **/
 
 const Compare = () => {

@@ -5,9 +5,7 @@
 **/
 
 import App from './App';
-import {BASE_URL} from './config/url';
-import {initialTrantition, randomTransition} from "./components/pageTransition";
-import {setState} from "./store/state";
+import {initialTrantition} from "./components/pageTransition";
 import './assets/style/PageTransition.scss';
 import {addEvent} from "@src/components/addEvent";
 

@@ -10,16 +10,12 @@ app = Flask(__name__, static_folder=os.path.abspath(my_path))
 
 
 def update(insta_id):
-    result = 'ok'
+    data = {}
     try:
-        crawler_instagram(insta_id)
+        data = crawler_instagram(insta_id)
     except Exception as e:
         print(e)
-        result = 'fail'
 
-    data = {
-        "result" : result
-    }
     return jsonify(data)
 
 

@@ -13,6 +13,7 @@ const Intro = (): string =>{
             ${Title('인스타 조회하기').Large}
             <input id="id-input" type="text" name="insta_id" />
             <button id="search-button">조회</button>
+            <button id="update-button">업데이</button>
         </lable>
     </div>`
 }

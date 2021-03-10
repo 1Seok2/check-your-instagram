@@ -19,7 +19,7 @@ db = firebase.database()
 
 
 def id_encrypt(user_insta_id):
-    return user_insta_id.replace('_', '1z1').replace('.', '2z2')
+    return user_insta_id.replace('_', '').replace('.', '')
 
 
 def update_data(user_insta_id, data):
