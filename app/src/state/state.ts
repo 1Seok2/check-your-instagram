@@ -11,7 +11,7 @@ export interface StateType{
     following? : Array<string>
 }
 
-export const state: StateType ={
+const  state: StateType ={
     insta_id : '',
     followers : [''],
     following : [''],
@@ -21,3 +21,5 @@ export const setState = (newState: StateType): StateType =>({
     ...state,
     ...newState
 });
+
+export default state;

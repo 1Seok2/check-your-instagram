@@ -3,7 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from config.admin import ID, PW, LOCAL_PROJECT_PATH
 from config.URLs import INSTAGRAM_URL
-# from config.firebase import update_data
+from config.firebase import update_data
 
 def check_people(driver, type):
     result = []
@@ -43,7 +43,12 @@ def get_list(insta_id, driver):
     following_list = check_people(driver, "following")
 
     # update at firebase
-    # update_data(insta_id, followers_list, following_list)
+    data = {
+        "followers" : followers_list,
+        "followings" : following_list,
+        "insta_id" : insta_id
+    }
+    update_data(insta_id, data)
 
 
 def crawler_instagram(insta_id):
@@ -64,10 +69,9 @@ def crawler_instagram(insta_id):
         isPrivate = ""
         pass
 
-    # 비공개 계정인 경우
+    # account is private
     if isPrivate:
         print('private!!')
-    # 공개 계정인 경우
     else:
         get_list(insta_id, driver)
 

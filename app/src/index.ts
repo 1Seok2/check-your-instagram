@@ -7,6 +7,7 @@
 import App from './App';
 import {BASE_URL} from './config/url';
 import {initialTrantition, randomTransition} from "./components/pageTransition";
+import {setState} from "./state/state";
 
 window.addEventListener('DOMContentLoaded', () => {
     /* add div for page transitions */
@@ -53,7 +54,10 @@ window.addEventListener('DOMContentLoaded', () => {
                     console.log(e);
                 } finally {
                     console.log(result);
-                    result && $App && ($App.innerHTML = App('main'));
+                    result && $App && (()=>{
+                        $App.innerHTML = App('main');
+                        setState({insta_id : insta_id});
+                    })();
                 }
             } else {
                 alert('아이디를 입력하세요');

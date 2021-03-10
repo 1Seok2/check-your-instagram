@@ -17,12 +17,21 @@ firebase = pyrebase.initialize_app(config)
 
 db = firebase.database()
 
-def update_data(user_insta_id ,followers, followings):
-    insta_id = user_insta_id.replace('_','').replace('.','')
 
-    data = {
-        "followings" : followings,
-        "followers" : followers
-    }
+def id_encrypt(user_insta_id):
+    return user_insta_id.replace('_', '1z1').replace('.', '2z2')
+
+
+def update_data(user_insta_id, data):
+    insta_id = id_encrypt(user_insta_id)
 
     db.child("insta").child(insta_id).update(data)
+
+
+def get_data_by_id(user_insta_id):
+    insta_id = id_encrypt(user_insta_id)
+
+    data = db.child("insta").child(insta_id).get()
+
+    return data.val()
+
