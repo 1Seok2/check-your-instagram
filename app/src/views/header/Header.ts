@@ -5,6 +5,7 @@
 **/
 
 import Title from "../../components/title";
+import '../../assets/style/Header.scss'
 
 const Header = () : string => `
     <div class="header">

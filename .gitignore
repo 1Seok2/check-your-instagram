@@ -7,6 +7,9 @@ crawler/chromedriver
 crawler/chromedriver.exe
 **/*.exe
 package-lock.json
+__pycache__/
+**/__pycache__/
+*.pyc
 
 **/build/
 public

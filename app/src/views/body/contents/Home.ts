@@ -4,7 +4,7 @@
  * @description id 입력하는 메인 화면
  *              조회 / 업데이트
  **/
-import {state} from "../../../state/state";
+import state from "../../../state";
 import Title from "../../../components/title";
 
 const Home = (): string =>{
