@@ -4,7 +4,7 @@
  * @description : 페이지 푸터
 **/
 
-import '../../assets/style/Footer.scss'
+import '@src/assets/style/Footer.scss'
 
 const Footer = () : string => {
 

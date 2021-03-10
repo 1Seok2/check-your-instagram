@@ -7,7 +7,9 @@
 import App from './App';
 import {BASE_URL} from './config/url';
 import {initialTrantition, randomTransition} from "./components/pageTransition";
-import {setState} from "./state/state";
+import {setState} from "./store/state";
+import './assets/style/PageTransition.scss';
+import {addEvent} from "@src/components/addEvent";
 
 window.addEventListener('DOMContentLoaded', () => {
     /* add div for page transitions */
@@ -31,37 +33,6 @@ window.addEventListener('DOMContentLoaded', () => {
     $App && ($App.innerHTML = App(pathname));
 
     document.body.addEventListener('click', async (e) => {
-        e.stopPropagation();
-
-        /* add navigation click event */
-        if((e.target as HTMLAnchorElement).matches("[data-link]")){
-            const href : string= (e.target as HTMLAnchorElement).href.split(BASE_URL)[1];
-            e.preventDefault();
-            setTimeout(()=>{
-                $App && ($App.innerHTML = App(href));
-            },1200);
-            randomTransition();
-        }
-        /* add POST event for button */
-        else if((e.target as HTMLAnchorElement).id === 'update-button') {
-            let result: any= null;
-            const insta_id = (document.querySelector('#id-input') as HTMLInputElement).value;
-
-            if(insta_id){
-                try{
-                    result = await (await fetch(BASE_URL + 'update?insta_id=' + insta_id)).json();
-                } catch (e){
-                    console.log(e);
-                } finally {
-                    console.log(result);
-                    result && $App && (()=>{
-                        $App.innerHTML = App('main');
-                        setState({insta_id : insta_id});
-                    })();
-                }
-            } else {
-                alert('아이디를 입력하세요');
-            }
-        }
+        await addEvent(e, $App, App);
     });
 })

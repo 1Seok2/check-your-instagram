@@ -31,7 +31,20 @@ def update_data(user_insta_id, data):
 def get_data_by_id(user_insta_id):
     insta_id = id_encrypt(user_insta_id)
 
-    data = db.child("insta").child(insta_id).get()
-
-    return data.val()
+    data = {};
+    try:
+        data = db.child("insta").child(insta_id).get()
+    except Exception as e:
+        print(e)
+        return {
+            'result' : 'no'
+        }
+    finally:
+        if data:
+            return data.val()
+        else:
+            return {
+                'followers': [],
+                'following': []
+            }
 

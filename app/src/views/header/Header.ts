@@ -4,8 +4,8 @@
  * @description : 페이지 헤더
 **/
 
-import Title from "../../components/title";
-import '../../assets/style/Header.scss'
+import Title from "@src/components/title";
+import '@src/assets/style/Header.scss'
 
 const Header = () : string => `
     <div class="header">

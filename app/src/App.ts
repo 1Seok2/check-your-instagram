@@ -10,7 +10,6 @@ import Header from "./views/header";
 import Body from "./views/body";
 import Footer from "./views/footer";
 import './assets/style/App.scss';
-import './assets/style/PageTransition.scss';
 
 const App = (pathname : string) : string => {
     history.pushState('','', pathname);
@@ -19,8 +18,8 @@ const App = (pathname : string) : string => {
         <div class="container">
             ${Header()}
             ${Body(pathname)}
-            ${Footer()}
         </div>
+        ${Footer()}
     `;
 }
 
