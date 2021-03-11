@@ -10,13 +10,17 @@ import Header from "./views/header";
 import Body from "./views/body";
 import Footer from "./views/footer";
 import './assets/style/App.scss';
+import {getState} from "@src/store/state";
 
 const App = (pathname : string) : string => {
+    /* id 없을 시 id 입력으로 redirect */
+    if(!getState().insta_id) pathname = '';
+
     history.pushState('','', pathname);
 
     return `
         <div class="container">
-            ${Header()}
+            ${pathname && Header()}
             ${Body(pathname)}
         </div>
         ${Footer()}

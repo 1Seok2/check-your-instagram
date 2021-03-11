@@ -6,7 +6,7 @@
 
 import {BASE_URL} from "@src/config/url";
 import {randomTransition} from "@src/components/pageTransition";
-import {getState, setState} from "@src/store/state";
+import {setState} from "@src/store/state";
 
 export const addEvent = async (
     e : Event,
@@ -38,11 +38,7 @@ export const addEvent = async (
                 console.log('res!',result);
                 result && $App && (()=>{
                     randomTransition();
-                    setState({
-                        insta_id : insta_id,
-                        followers : result.followers,
-                        following : result.following
-                    });
+                    setState(result);
                     setTimeout(()=>{
                         $App.innerHTML = App('main');
                     },1200)
@@ -66,11 +62,7 @@ export const addEvent = async (
                 console.log(result);
                 result && $App && (()=>{
                     randomTransition();
-                    setState({
-                        insta_id : insta_id,
-                        followers : result.followers,
-                        following : result.following
-                    });
+                    setState(result);
                     setTimeout(()=>{
                         $App.innerHTML = App('main');
                     },1200)

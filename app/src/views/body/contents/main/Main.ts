@@ -5,20 +5,33 @@
  *                업데이트하기
  *                다른 메뉴 보기
 **/
-import state from "@src/store";
 import {getState} from "@src/store/state";
 
 const Main = () => {
-    let contents = `<div>${state.insta_id}</div>`
-
-    contents += getState().followers?.map(id => `<div>followers ${id}</div>`)
-
-    contents += getState().following?.map(id => `<div>following ${id}</div>`)
+    const state = getState();
+    let followers : string = '';
+    let following : string = '';
+    state.followers?.forEach(id => {
+        followers += `<div>${id}</div>`
+    });
+    state.following?.forEach(id => {
+        following += `<div>${id}</div>`
+    });
 
     return `
         <div class="main">
-            its main
-            ${contents}
+            <div id="profile">
+                <img src="${state.src}" alt="${state.insta_id}-image"/>
+                <span class="profile-id">${state.insta_id}</span>
+            </div>
+            <div id="list">
+                <div id="followers">
+                    ${followers}
+                </div>
+                <div id="following">
+                    ${following}
+                </div>
+            </div>
         </div>
     `
 }

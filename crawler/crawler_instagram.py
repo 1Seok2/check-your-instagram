@@ -35,6 +35,9 @@ def login(driver):
 
 
 def get_list(insta_id, driver):
+    # get profile src
+    src = driver.find_element_by_css_selector('.XjzKX .RR-M- span img').get_attribute('src')
+
     # check followers
     followers_list = check_people(driver, "followers")
 
@@ -49,7 +52,8 @@ def get_list(insta_id, driver):
     data = {
         "followers" : followers_list,
         "following" : following_list,
-        "insta_id" : insta_id
+        "insta_id" : insta_id,
+        "src" : src
     }
     update_data(insta_id, data)
 

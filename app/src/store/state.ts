@@ -8,13 +8,15 @@
 export interface StateType{
     insta_id? : string,
     followers? : Array<string>,
-    following? : Array<string>
+    following? : Array<string>,
+    src? : string
 }
 
 const initialState = {
     insta_id : '',
     followers : [''],
     following : [''],
+    src : '',
 }
 let state: StateType = initialState;
 
@@ -28,5 +30,3 @@ export const setState = (newState: StateType): void => {
 export const getState = () => {
     return state
 }
-
-export default state;
