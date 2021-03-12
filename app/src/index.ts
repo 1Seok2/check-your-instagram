@@ -6,8 +6,9 @@
 
 import App from './App';
 import {initialTrantition} from "./components/page.transition";
-import './assets/style/PageTransition.scss';
 import {addEvent} from "@src/components/add.event";
+import './assets/style/PageTransition.scss';
+import './assets/style/PageLoader.scss';
 
 window.addEventListener('DOMContentLoaded', () => {
     /* add div for page transitions */
@@ -17,6 +18,12 @@ window.addEventListener('DOMContentLoaded', () => {
         document.body.appendChild($div);
 
         initialTrantition();
+    })();
+
+    (()=> {
+        const $div = document.createElement('div');
+        $div.className = "page-loader";
+        document.body.appendChild($div);
     })();
 
     const $App = document.querySelector('#App');

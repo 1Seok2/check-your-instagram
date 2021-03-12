@@ -5,8 +5,9 @@
 **/
 
 import {BASE_URL} from "@src/config/url";
-import {randomTransition} from "@src/components/page.transition";
 import {setState} from "@src/store/state";
+import {togglePageLoader} from "@src/components/page.loader";
+import {randomTransition} from "@src/components/page.transition";
 
 export const addEvent = async (
     e : Event,
@@ -28,6 +29,7 @@ export const addEvent = async (
     else if((e.target as HTMLButtonElement).id === 'search-button') {
         let result: any= null;
         const insta_id = (document.querySelector('#id-input') as HTMLInputElement).value;
+        togglePageLoader(true);
 
         if(insta_id){
             try{
@@ -36,16 +38,23 @@ export const addEvent = async (
                 console.log(e);
             } finally {
                 console.log('res!',result);
-                result && $App && (()=>{
-                    randomTransition();
-                    setState(result);
-                    setTimeout(()=>{
-                        $App.innerHTML = App('main');
-                    },1200)
-                })();
+                if(result){
+                    $App && (()=>{
+                        randomTransition();
+                        setState(result);
+                        setTimeout(()=>{
+                            $App.innerHTML = App('main');
+                            togglePageLoader(false);
+                        },1200)
+                    })();
+                } else {
+                    togglePageLoader(false);
+                    alert('fail to search');
+                }
             }
         } else {
             alert('아이디를 입력하세요');
+            togglePageLoader(false);
         }
     }
     /* add POST event for button */
