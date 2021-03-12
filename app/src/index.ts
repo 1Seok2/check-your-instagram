@@ -5,9 +5,9 @@
 **/
 
 import App from './App';
-import {initialTrantition} from "./components/pageTransition";
+import {initialTrantition} from "./components/page.transition";
 import './assets/style/PageTransition.scss';
-import {addEvent} from "@src/components/addEvent";
+import {addEvent} from "@src/components/add.event";
 
 window.addEventListener('DOMContentLoaded', () => {
     /* add div for page transitions */

@@ -6,15 +6,20 @@
  **/
 
 import Title from "@src/components/title";
+import '@src/assets/style/Intro.scss'
 
 const Intro = (): string =>{
-    return `<div class="home">
-        <lable>   
-            ${Title('인스타 조회하기').Large}
-            <input id="id-input" type="text" name="insta_id" />
-            <button id="search-button">조회</button>
-            <button id="update-button">업데이</button>
-        </lable>
+    return `<div class="intro">
+        <label for="id-input">   
+            ${Title('SEARCH INSTAGRAM').Large}
+            <input 
+                id="id-input" 
+                type="text" 
+                name="insta_id" 
+                placeholder="INSTAGRAM ID"
+            />
+            <button id="search-button">SEARCH</button>
+        </label>
     </div>`
 }
 

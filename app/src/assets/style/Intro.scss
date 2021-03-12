@@ -1,0 +1,39 @@
+.intro {
+  width: 240px;
+  padding-bottom: 6rem;
+
+  #id-input {
+    border: none;
+    display: block;
+    width: calc(100% - 1.4rem);
+    border-bottom: 1px solid #aaa;
+    margin: 1.2rem 0;
+    margin-top: 2.4rem;
+    padding: 0.7rem 0.7rem;
+    color: #333;
+    border-radius: .25rem;
+    &::placeholder {
+      color: #aaaaaa;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  #search-button {
+    width: 100%;
+    margin: 0;
+    padding: .8rem .6rem;
+    border: none;
+    font-size: .8rem;
+    color : #fafafa;
+    background-color: lightskyblue;
+    border-radius: .25rem;
+
+    &:focus {
+      outline: none;
+      border: 1px solid deepskyblue;
+    }
+  }
+}

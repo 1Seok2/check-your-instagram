@@ -5,7 +5,7 @@
 **/
 
 import {BASE_URL} from "@src/config/url";
-import {randomTransition} from "@src/components/pageTransition";
+import {randomTransition} from "@src/components/page.transition";
 import {setState} from "@src/store/state";
 
 export const addEvent = async (

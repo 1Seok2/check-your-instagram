@@ -2,9 +2,24 @@
   height: 120px;
   background-color: #f3f3f3;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   font-size: .8rem;
   width: 100%;
-  color: #aaaaaa;
+
+  div {
+    padding: .3rem 1.6rem;
+    width: 90%;
+    text-align: left;
+    color: #aaaaaa;
+    &:first-child {
+      font-size: 1.2rem;
+    }
+
+    a {
+      font-size: 1.2rem;
+      color: #aaaaaa;
+    }
+  }
 }

@@ -2,6 +2,10 @@ body {
     margin: 0;
     padding: 0;
 }
+* {
+    text-decoration: none;
+    color: #333;
+}
 
 .container {
     display: flex;
@@ -11,4 +15,9 @@ body {
     min-width: 250px;
     width: 100vw;
     height: 100vh;
+}
+
+.large-title {
+    font-size: 2rem;
+    color: #333
 }

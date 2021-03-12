@@ -9,7 +9,18 @@ import '@src/assets/style/Footer.scss'
 const Footer = () : string => {
 
     return `
-        <div class="footer">Its my Footer</div>
+        <div class="footer">
+            <div>
+                <a href="mailto:goesnow831@gmail.com">WON SEOG</a> 
+                &nbsp; | &nbsp; 
+                <a href="https://github.com/1seok2">GITHUB</a>
+                &nbsp; | &nbsp; 
+                <a href="https://goeslog.github.io">BLOG</a>
+            </div>
+            <div>
+                © 2021 goesnow, All rights reserved 
+            </div>
+        </div>
     `;
 }
 
