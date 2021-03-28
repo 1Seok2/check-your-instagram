@@ -6,10 +6,11 @@
 
 import Title from "@src/components/title";
 import '@src/assets/style/Header.scss'
+import {getState} from "@src/store/state";
 
 const Header = () : string => `
     <div class="header">
-        ${Title('im title').Large}
+        ${Title(getState().insta_id || 'INSTAGRAM').Large}
     </div>
 `;
 

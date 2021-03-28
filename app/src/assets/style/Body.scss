@@ -1,6 +1,7 @@
 .body {
   width: 100%;
   flex-grow: 1;
+  max-height: calc(100vh - 70px);
   display: flex;
   justify-content: center;
   align-items: center;
