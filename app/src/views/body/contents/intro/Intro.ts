@@ -16,7 +16,7 @@ const Intro = (): string =>{
                 id="id-input" 
                 type="text" 
                 name="insta_id" 
-                placeholder="INSTAGRAM ID"
+                placeholder="INSTAGRAM NICKNAME"
             />
             <button id="search-button">SEARCH</button>
         </label>

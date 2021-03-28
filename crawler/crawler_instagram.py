@@ -62,7 +62,7 @@ def get_list(insta_id, driver):
 
 def crawler_instagram(insta_id):
     options = Options()
-    # options.add_argument("--headless")
+    options.add_argument("--headless")
     options.add_argument("window-size=1920,1080")
     driver = webdriver.Chrome(chrome_options=options, executable_path=LOCAL_PROJECT_PATH + '/crawler/chromedriver')
     driver.get(url=INSTAGRAM_URL)
