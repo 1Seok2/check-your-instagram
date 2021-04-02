@@ -15,7 +15,6 @@ import './assets/style/App.scss';
 const App = (pathname : string) : string => {
     /* id 없을 시 id 입력으로 redirect */
     if(!getState().insta_id) pathname = '';
-
     history.pushState('','', pathname);
 
     return `
