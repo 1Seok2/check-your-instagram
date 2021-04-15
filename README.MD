@@ -2,7 +2,7 @@
 
 Lookup ID, and Compare!
 
-<span style="font-size:24px;">SPA</span> with <span style="font-size:16px;">Vanilla Typescript</span>
+<span style="font-size:24px;">SPA</span> with <span style="font-size:16px;">Typescript</span>
 
 and <span style="font-size:24px;">Page Transitions</span> with <span style="font-size:16px;">Scss</span>
 
