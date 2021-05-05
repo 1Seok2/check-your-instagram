@@ -21,8 +21,8 @@ export function linkEvent(e: Event) {
   randomTransition();
 }
 
-export async function searchEvent() {
-  const insta_id = (getElement("#id-input") as HTMLInputElement).value;
+export async function handleFetchById(url: string, cssSelector: string) {
+  const insta_id = (getElement(cssSelector) as HTMLInputElement).value;
 
   pendingFetch();
 
@@ -31,18 +31,5 @@ export async function searchEvent() {
     return;
   }
 
-  await fetchByURL("search?insta_id=" + insta_id);
-}
-
-export async function updateEvent() {
-  const insta_id = (getElement("#id-input") as HTMLInputElement).value;
-
-  pendingFetch();
-
-  if (!insta_id) {
-    warningEmptyId();
-    return;
-  }
-
-  await fetchByURL("update?insta_id=" + insta_id);
+  await fetchByURL(url + insta_id);
 }

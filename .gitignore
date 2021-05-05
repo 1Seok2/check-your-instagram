@@ -3,8 +3,8 @@
 .vscode/**
 **/.idea/
 
+crawler/chromedriver_88
 crawler/chromedriver
-crawler/chromedriver.exe
 **/*.exe
 package-lock.json
 __pycache__/

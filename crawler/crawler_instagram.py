@@ -6,6 +6,7 @@ from config.admin import ID, PW, LOCAL_PROJECT_PATH
 from config.URLs import INSTAGRAM_URL
 from config.firebase import update_data
 
+
 def check_people(driver, type):
     result = []
     navigations = driver.find_elements_by_class_name('-nal3')
@@ -50,10 +51,10 @@ def get_list(insta_id, driver):
 
     # update at firebase
     data = {
-        "followers" : followers_list,
-        "following" : following_list,
-        "insta_id" : insta_id,
-        "src" : src
+        "followers": followers_list,
+        "following": following_list,
+        "insta_id": insta_id,
+        "src": src
     }
     update_data(insta_id, data)
 
@@ -62,7 +63,7 @@ def get_list(insta_id, driver):
 
 def crawler_instagram(insta_id):
     options = Options()
-    options.add_argument("--headless")
+    # options.add_argument("--headless")
     options.add_argument("window-size=1920,1080")
     driver = webdriver.Chrome(chrome_options=options, executable_path=LOCAL_PROJECT_PATH + '/crawler/chromedriver')
     driver.get(url=INSTAGRAM_URL)
@@ -70,10 +71,10 @@ def crawler_instagram(insta_id):
 
     print('hi')
     login(driver)
-    print('by')
+    print(insta_id)
     time.sleep(2)
 
-    url="%s/%s"%(INSTAGRAM_URL, insta_id)
+    url = "%s/%s" % (INSTAGRAM_URL, insta_id)
     driver.get(url=url)
     time.sleep(2)
 

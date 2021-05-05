@@ -5,9 +5,10 @@
  *                업데이트하기
  *                다른 메뉴 보기
  **/
-import { getState } from "@src/store/state";
-import { formatNumber } from "@src/components/format.number";
 import "@src/assets/style/Main.scss";
+
+import { getState } from "@src/store/state";
+import { formatNumber } from "@src/components/functions";
 
 const Main = () => {
   const state = getState();

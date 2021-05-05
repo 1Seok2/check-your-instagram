@@ -5,13 +5,22 @@
  *              조회 / 업데이트
  **/
 
-import Title from "@src/components/title";
-import '@src/assets/style/Intro.scss'
+import Title from "@src/components/Title";
+import "@src/assets/style/Intro.scss";
+import addEventWithElementByType from "@src/components/add.event";
+import { handleFetchById } from "@src/components/event.list";
 
-const Intro = (): string =>{
-    return `<div class="intro">
+const Intro = (): string => {
+  addEventWithElementByType(document.body, "click", function (e: Event) {
+    if ((e.target as HTMLButtonElement).id === "search-button") {
+      /* add GET event for button */
+      handleFetchById("search?insta_id=", "#id-input");
+    }
+  });
+
+  return `<div class="intro">
         <label for="id-input">   
-            ${Title('SEARCH INSTAGRAM').Large}
+            ${Title("SEARCH INSTAGRAM").Large}
             <input 
                 id="id-input" 
                 type="text" 
@@ -20,7 +29,7 @@ const Intro = (): string =>{
             />
             <button id="search-button">SEARCH</button>
         </label>
-    </div>`
-}
+    </div>`;
+};
 
 export default Intro;
