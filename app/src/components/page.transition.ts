@@ -4,6 +4,8 @@
  * @description : 페이지 이동 효과 주는 함수
  **/
 
+import { getElement } from "./functions";
+
 let $div: HTMLDivElement;
 
 const pageTransitionClassList = [
@@ -12,8 +14,7 @@ const pageTransitionClassList = [
   "transition-2",
 ];
 
-const getDivs = (): HTMLDivElement =>
-  document.querySelector(".page-transition") as HTMLDivElement;
+const getDivs = () => getElement(".page-transition") as HTMLDivElement;
 
 const turnOnAndOff = (idx: number) => {
   $div.classList.toggle(pageTransitionClassList[idx]);
@@ -30,7 +31,7 @@ const turnOnAndOff = (idx: number) => {
 
 export const initialTrantition = () => {
   $div = $div || getDivs();
-  $div && turnOnAndOff(0);
+  turnOnAndOff(0);
 };
 
 export const randomTransition = () => {
@@ -39,7 +40,7 @@ export const randomTransition = () => {
     Math.random() * (pageTransitionClassList.length - 1) + 1
   );
 
-  $div && turnOnAndOff(randomIndex);
+  turnOnAndOff(randomIndex);
 };
 
 export default function animatePage() {
