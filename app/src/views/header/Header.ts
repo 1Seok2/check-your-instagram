@@ -6,7 +6,7 @@
 
 import "@src/assets/style/Header.scss";
 
-import { renderApp } from "@src/App";
+import renderApp from "@src/App";
 import addEventWithElementByType from "@src/components/add.event";
 import { handleFetchById } from "@src/components/event.list";
 

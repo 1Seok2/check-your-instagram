@@ -1,5 +1,5 @@
 import { randomTransition } from "@src/components/page.transition";
-import { renderApp } from "@src/App";
+import renderApp from "@src/App";
 import {
   getElement,
   pendingFetch,

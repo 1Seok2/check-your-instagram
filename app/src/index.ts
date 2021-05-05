@@ -13,7 +13,7 @@ import addEventWithElementByType from "@src/components/add.event";
 import { getPathname } from "@src/components/functions";
 import { linkEvent } from "@src/components/event.list";
 
-import { renderApp } from "./App";
+import renderApp from "./App";
 
 window.addEventListener("DOMContentLoaded", () => {
   createLoaderElement();

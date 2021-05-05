@@ -2,7 +2,7 @@ import { BASE_URL } from "@src/config/url";
 import { setState } from "@src/store/state";
 import { togglePageLoader } from "@src/components/page.loader";
 import { randomTransition } from "@src/components/page.transition";
-import { renderApp } from "@src/App";
+import renderApp from "@src/App";
 
 export function formatNumber(number: number): string {
   if (`${number}`.length > 6) {

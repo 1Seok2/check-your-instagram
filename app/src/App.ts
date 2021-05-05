@@ -13,7 +13,7 @@ import { getState } from "@src/store/state";
 import "./assets/style/App.scss";
 import { getElement } from "./components/functions";
 
-export default function App(pathname: string): string {
+function App(pathname: string): string {
   /* id 없을 시 id 입력으로 redirect */
   if (!getState().insta_id) pathname = "";
   history.pushState("", "", pathname);
@@ -27,7 +27,7 @@ export default function App(pathname: string): string {
     `;
 }
 
-export function renderApp(pathname: string): void {
+export default function renderApp(pathname: string): void {
   const $App = getElement("#App") as HTMLDivElement;
 
   $App.innerHTML = App(pathname);
