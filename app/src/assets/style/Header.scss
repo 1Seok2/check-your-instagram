@@ -1,8 +1,39 @@
 .header {
-  height: 70px;
+  width: 100%;
+  height: 90px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   font-size: 1.8rem;
-  width: 100%;
+
+  .form-container {
+    width: 200px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    #id-input {
+      height: 100%;
+      text-align: center;
+      font-size: 21px;
+      border: none;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    button {
+      width: 100%;
+      margin: 8px 0;
+      padding: 6px;
+      background-color: deepskyblue;
+      color: #efefef;
+      border: none;
+      border-radius: 6px;
+    }
+  }
 }
